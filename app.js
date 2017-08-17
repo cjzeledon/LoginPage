@@ -16,5 +16,5 @@ app.listen(3002, function(){
 // Decide if you need to use the static page
 
 app.get('/', function (request, response){
-  res.render('login');
+  res.render('login.mustache');
 });
