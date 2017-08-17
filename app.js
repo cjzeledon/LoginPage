@@ -8,6 +8,8 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({ extended: false }));
+
+// use this block of code if you are using the session variable to sign in with a username. Otherwise, it will not work.
 app.use(session({
     secret: '9blah934_bingbangbong_whoot3',
     resave: false,
@@ -30,9 +32,11 @@ app.get('/', function (request, respond){
 });
 
 app.post('/login', function (request, respond){
-  const username = request.body.username;
-  const password = request.body.password;
+  const login_username = request.body.username;
+  const login_password = request.body.password;
+
   request.session.who = users[0];
+
   respond.redirect('/welcome');
 })
 
