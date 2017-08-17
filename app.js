@@ -16,7 +16,7 @@ app.use(session({
     saveUninitialized: true
 }));
 
-// app.use(express.static('public'));
+app.use(express.static('views'));
 // Decide if you need to use the static page and how it really works and what its purpose really is
 
 // [] are arrays and {} are objects
