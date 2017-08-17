@@ -8,7 +8,7 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
-app.listen(3002, function(){
+app.listen(3000, function(){
   console.log('Node.js Rule!');
 })
 
