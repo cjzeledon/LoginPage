@@ -7,6 +7,7 @@ const app = express();
 app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
+app.use(bodyparser.urlencoded({ extended: false }));
 
 // app.use(express.static('public'));
 // Decide if you need to use the static page and how it really works and what its purpose really is
