@@ -62,7 +62,8 @@ app.post('/login', function (request, respond){
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
   respond.render('welcome',{
-    loginName: request.session.who.username});
+    loginName: request.session.who.username
+  });
 });
 
 // This creates a port 3000 so that the app can "listen" in to. Basically grants access?
