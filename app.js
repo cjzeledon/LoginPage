@@ -13,7 +13,7 @@ app.set('view engine', 'mustache');
 // Decide if you need to use the static page
 
 app.get('/', function (request, response){
-  res.render('login.mustache');
+  response.render('login.mustache');
 });
 
 app.listen(3000, function(){
