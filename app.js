@@ -1,9 +1,10 @@
 const express = require('express');
-const mustache = require('mustache-express');
+const mustacheExpress = require('mustache-express');
 const session = require('express-session');
 const bodyParser = require('body-parser');
 const app = express();
 
+app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
