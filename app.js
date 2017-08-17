@@ -15,7 +15,7 @@ app.get('/', function (request, respond){
   respond.render('login');
 });
 
-app.get('/welcome' function(request, respond){
+app.get('/welcome', function(request, respond){
   respond.render('welcome');
 });
 
