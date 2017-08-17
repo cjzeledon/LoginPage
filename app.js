@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 // app.use(express.static('public'));
 // Decide if you need to use the static page and how it really works and what its purpose really is
 
-// {} are arrays and [] are objects
+// [] are arrays and {} are objects
 const users = [
   {username: 'ayanna', password:'minecraft', logins: 0},
   {username: 'melania', password:'talks', logins: 0},
@@ -27,14 +27,14 @@ app.get('/', function (request, respond){
 app.post('/login', function (request, respond){
   const username = request.body.username;
   const password = request.body.password;
-  let user = null;
+  request.session.who = users[0]; 
   respond.redirect('/welcome');
-
 })
 
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
-  respond.render('welcome', users);
+  respond.render('welcome',{
+    loginName: request.session.who.username});
 });
 
 // This creates a port 3000 so that the app can "listen" in to. Basically grants access?
