@@ -13,3 +13,7 @@ app.listen(4000, function(){
 
 // app.use(express.static('public'));
 // Decide if you need to use the static page
+
+app.get('/', function (request, response){
+  console.log("Can you See Me?")
+});
