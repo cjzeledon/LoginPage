@@ -24,6 +24,13 @@ app.get('/', function (request, respond){
   respond.render('login');
 });
 
+app.post('/login', function (request, respond){
+  const username = request.body.username;
+  const password = request.body.password;
+  let user = null;
+  
+})
+
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
   respond.render('welcome');
