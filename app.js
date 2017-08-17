@@ -20,7 +20,7 @@ app.use(session({
 // Decide if you need to use the static page and how it really works and what its purpose really is
 
 // [] are arrays and {} are objects
-const users = [
+const people = [
   {username: 'ayanna', password:'minecraft', logins: 0},
   {username: 'melania', password:'talks', logins: 0},
   {username: 'sophia', password:'runs', logins: 0},
@@ -31,11 +31,23 @@ app.get('/', function (request, respond){
   respond.render('login');
 });
 
+//This section creates a request.session that only applies to this. The code request.session is essentially an object where information can be stored in.
 app.post('/login', function (request, respond){
-  const login_username = request.body.username;
-  const login_password = request.body.password;
+  const login_username = request.body.give_username;
+  const login_password = request.body.give_password;
+  request.session.who = people;
 
-  request.session.who = users[0];
+  let person = null;
+
+  for (let i = 0; i < people.length; i++){
+    if (login_username === people[i].username && login_password === people[i].password){
+      person = people[i];
+      respond.redirect('/welcome');
+    }
+    else {
+      respond.redirect('/')
+    }
+  }
 
   respond.redirect('/welcome');
 })
