@@ -1,0 +1,11 @@
+{
+  "name": "loginpage",
+  "version": "1.0.0",
+  "description": "Creating a Login Page with Express, Express Mustache and Express-Session. ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Claudia Zeledon",
+  "license": "ISC"
+}
