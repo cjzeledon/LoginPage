@@ -14,9 +14,9 @@ app.use(bodyparser.urlencoded({ extended: false }));
 
 // {} are arrays and [] are objects
 const users = [
-  {username: 'ayanna', password='minecraft', logins: 0},
-  {username: 'melania', password='talks', logins: 0},
-  {username: 'sophia', password='runs', logins: 0},
+  {username: 'ayanna', password:'minecraft', logins: 0},
+  {username: 'melania', password:'talks', logins: 0},
+  {username: 'sophia', password:'runs', logins: 0},
 ];
 
 // This is to create a login web page at the root path.
