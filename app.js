@@ -8,9 +8,6 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 
-app.listen(3000, function(){
-  console.log('Node.js Rule!');
-})
 
 // app.use(express.static('public'));
 // Decide if you need to use the static page
@@ -18,3 +15,7 @@ app.listen(3000, function(){
 app.get('/', function (request, response){
   res.render('login.mustache');
 });
+
+app.listen(3000, function(){
+  console.log('Node.js Rule!');
+})
