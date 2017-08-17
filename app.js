@@ -39,18 +39,25 @@ app.post('/login', function (request, respond){
   let person = null;
 
   for (let i = 0; i < people.length; i++){
+    // this loop and if statement is just to set the user from null to have a value
+    // the only way that happens is if they type in a matching username and password
     if (login_username === people[i].username && login_password === people[i].password){
+      // if true the person will be re assigned to not null
       person = people[i];
-      console.log(person);
+      // console.log(person);
       request.session.who = person;
-      console.log(request.session.who);
-
-      respond.redirect('/welcome');
-    } else {
-      respond.redirect('/')
+      // console.log(request.session.who);
     }
   }
-})
+  // you need an if statement here if user is not null show them welcome.mustache
+  // if the user IS null then they haven't  logged in correctly
+  // so they need to see the login screen
+  if (person !== null){
+    respond.redirect('/welcome');
+  } else {
+    respond.redirect('/')
+  }
+});
 
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
