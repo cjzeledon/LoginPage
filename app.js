@@ -35,26 +35,27 @@ app.get('/', function (request, respond){
 app.post('/login', function (request, respond){
   const login_username = request.body.give_username;
   const login_password = request.body.give_password;
-  request.session.who = people;
 
   let person = null;
 
   for (let i = 0; i < people.length; i++){
     if (login_username === people[i].username && login_password === people[i].password){
       person = people[i];
+      console.log(person);
+      request.session.who = person;
+      console.log(request.session.who);
+
       respond.redirect('/welcome');
     } else {
       respond.redirect('/')
     }
   }
-
-  respond.redirect('/welcome');
 })
 
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
   respond.render('welcome',{
-    loginName: people.username});
+    loginName: request.session.who.username});
 });
 
 // This creates a port 3000 so that the app can "listen" in to. Basically grants access?
