@@ -8,6 +8,11 @@ app.engine('mustache', mustacheExpress());
 app.set('views', './views');
 app.set('view engine', 'mustache');
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(session({
+    secret: '9blah934_bingbangbong_whoot3',
+    resave: false,
+    saveUninitialized: true
+}));
 
 // app.use(express.static('public'));
 // Decide if you need to use the static page and how it really works and what its purpose really is
@@ -27,7 +32,7 @@ app.get('/', function (request, respond){
 app.post('/login', function (request, respond){
   const username = request.body.username;
   const password = request.body.password;
-  request.session.who = users[0]; 
+  request.session.who = users[0];
   respond.redirect('/welcome');
 })
 
