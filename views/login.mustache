@@ -10,12 +10,19 @@
 
   <header>Can You Pass?</header>
 
-  <div class="signin">
-    <form method="post" action="/login">
+  <div>
+    <form id="LogMeIn" method="post" action="/login">
       <p><input type="text" name="give_username" placeholder="Enter Username"></p>
       <p><input type="password" name="give_password" placeholder="Enter Password"></p>
       <p><input type="submit" value="Sign In"></p>
-      <p><button id="sign_up">Sign Up</button></p>
+    </form>
+  </div>
+
+  <div>
+    <form id="MakeAccount" method="post" action="/create_account">
+      <p>Don't have an account?</p>
+      <p>Click the button below to create an account<p>
+      <p><input type="submit" value="Sign Up"></p>
     </form>
   </div>
 
