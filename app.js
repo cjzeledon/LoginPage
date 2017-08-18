@@ -31,13 +31,28 @@ app.get('/', function (request, respond){
   respond.render('login');
 });
 
+//This works fantastic with redirecting you to the login page. However, when you hit the log out button, it does not erase your session. If you type in /welcome on the URL box, you can easily go back to the welcome page and still with your user identification.
+app.post('/', function (request, respond){
+  respond.render('login');
+  // respond.end('You have logged out');
+});
+
+// Below refers to Sign Up pages
+app.get('/create_account', function(request, respond){
+  respond.render('create_account');
+})
+
+app.post('/create_account', function (request, respond){
+  respond.render('create_account');
+  // respond.end('You have logged out');
+});
+
+
 //This section creates a request.session that only applies to this. The code request.session is essentially an object where information can be stored in.
 app.post('/login', function (request, respond){
   const login_username = request.body.give_username;
   const login_password = request.body.give_password;
-
   let person = null;
-  let math = math.random();
 
   for (let i = 0; i < people.length; i++){
     // this loop and if statement is just to set the user from null to have a value
@@ -57,20 +72,33 @@ app.post('/login', function (request, respond){
     request.session.who.logins++
     respond.redirect('/welcome');
   } else {
-    respond.redirect('/')
+    respond.redirect('/');
   }
 });
 
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
+  // log_out = request.body.sign_out;
+
   respond.render('welcome',{
     loginName: request.session.who.username,
     loginTimes: request.session.who.logins,
-    // loginTimesRandom: Math.random(),
-    // Figure out why this one is not working as this is alredy a built-in math generation of numbers. It keeps saying math is not defined. 
+    loginTimesRandom: Math.random(),
+    // Figure out why this one is not working as this is alredy a built-in math generation of numbers. It keeps saying math is not defined.
+    // Figured out why it was not "defined". Turns out math.random() does not work and will return as undefined. Math.random() is the correct one.
     loginAvatar: request.session.who.avatar,
   });
+
+  //This idea does not work with trying to log out.
+  // if (request.session.log_out){
+  //   respond.redirect('/');
+  // }
 });
+
+  //This idea does not work with trying to log out.
+// app.get('/signout', function(request, respond){
+//   respond.redirect('/');
+// })
 
 // This creates a port 3000 so that the app can "listen" in to. Basically grants access?
 app.listen(3000, function(){
