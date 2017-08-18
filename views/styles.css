@@ -47,7 +47,7 @@ input[type=text], input[type=password]{
   width: 200px;
 }
 
-input[type=submit]{
+input[type=submit], #sign_up, #sign_out{
   border: 1px solid white;
   border-radius: 8px;
   background-color: lightgray;
