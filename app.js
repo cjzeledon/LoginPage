@@ -21,9 +21,9 @@ app.use(express.static('views'));
 
 // [] are arrays and {} are objects
 const people = [
-  {username: 'ayanna', password:'minecraft', logins: 0},
-  {username: 'melania', password:'talks', logins: 0},
-  {username: 'sophia', password:'runs', logins: 0},
+  {username: 'ayanna', password:'minecraft', logins: 0, avatar:'https://avatarfiles.alphacoders.com/767/76751.png'},
+  {username: 'melania', password:'talks', logins: 0, avatar:'https://avatarfiles.alphacoders.com/481/48188.jpg'},
+  {username: 'sophia', password:'runs', logins: 0, avatar:'https://avatarfiles.alphacoders.com/642/64288.jpg'},
 ];
 
 // This is to create a login web page at the root path.
@@ -62,7 +62,9 @@ app.post('/login', function (request, respond){
 // This creates a welcome page after the login is successful.
 app.get('/welcome', function(request, respond){
   respond.render('welcome',{
-    loginName: request.session.who.username
+    loginName: request.session.who.username,
+    loginTimes: request.session.who.logins,
+    loginAvatar: request.session.who.avatar,
   });
 });
 
