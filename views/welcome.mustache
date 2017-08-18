@@ -12,12 +12,14 @@
   <p class="kidding">I was kidding. You are granted access. :)</p>
 
   <article>
-    <h1>You Made It Here, {{ loginName }}!</h1>
+    <h1>Welcome {{ loginName }}!</h1>
+    <img src="{{loginAvatar}}">
+    <p>You logged in exactly {{loginTimes}}.45821 times!</p>
+    <p class="kidding">It was a joke...it was a joke. Really, you logged in {{ LoginTimes }} times.</p>
 
-    <p>You exactly logged in {{ loginTimes }} times!</p>
 
     <button id="sign_out">Sign Out</button>
-    
+
   </article>
 
 </body>
