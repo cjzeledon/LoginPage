@@ -16,6 +16,16 @@ strong{
   text-transform: uppercase;
 }
 
+/*This class will set the avatar div to be at 230px so that the images within it will resize itself to 100% of that avatar_container width.*/
+.avatar_container{
+  width: 230px;
+}
+
+img{
+  width: 100%;
+  height: auto;
+}
+
 .kidding{
   font-size: .4em;
   font-family: Bookman, Garamond, Palatino, Georgia;
@@ -27,24 +37,34 @@ strong{
   font-family: Bookman, Garamond, Palatino, Georgia;
 }
 
-.signin{
+/*.signin{
   border: 10px dotted lightgray;
   border-radius: 15px;
   width: 520px;
   margin-left: auto;
   margin-right: auto;
   margin-top: 25px;
-}
+}*/
 
-form{
+#LogMeIn, #BirthAccount{
   background-color: salmon;
   border: 10px dashed white;
   border-radius: 30px;
   text-align: center;
   width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25px;
 }
 
-input[type=text], input[type=password]{
+#MakeAccount{
+  text-align: center;
+  width: 500px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+input[type=text], input[type=password], input[type=url]{
   border: 1px solid white;
   border-radius: 8px;
   padding-left: 7px;
