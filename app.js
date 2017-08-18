@@ -37,6 +37,7 @@ app.post('/login', function (request, respond){
   const login_password = request.body.give_password;
 
   let person = null;
+  let math = math.random();
 
   for (let i = 0; i < people.length; i++){
     // this loop and if statement is just to set the user from null to have a value
@@ -65,6 +66,8 @@ app.get('/welcome', function(request, respond){
   respond.render('welcome',{
     loginName: request.session.who.username,
     loginTimes: request.session.who.logins,
+    // loginTimesRandom: Math.random(),
+    // Figure out why this one is not working as this is alredy a built-in math generation of numbers. It keeps saying math is not defined. 
     loginAvatar: request.session.who.avatar,
   });
 });
