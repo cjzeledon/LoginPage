@@ -53,6 +53,7 @@ app.post('/login', function (request, respond){
   // if the user IS null then they haven't  logged in correctly
   // so they need to see the login screen
   if (person !== null){
+    request.session.who.logins++
     respond.redirect('/welcome');
   } else {
     respond.redirect('/')
