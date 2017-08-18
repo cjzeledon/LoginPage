@@ -13,12 +13,13 @@
 
   <article>
     <h1>Welcome {{ loginName }}!</h1>
-    <img src="{{loginAvatar}}">
-    <p>You logged in exactly {{loginTimes}}.844717493 times!</p>
+    <div class="avatar_container"><img src="{{loginAvatar}}"></div>
+    <p>You logged in exactly {{loginTimes}}.{{loginTimesRandom}} times!</p>
     <p class="kidding_again">It was a joke...it was a joke. Really, you logged in {{loginTimes}} times.</p>
 
-
-    <button id="sign_out">Sign Out</button>
+    <form id="LogMeOut" method="post" action="/">
+    <input type="submit" value="Log Out">
+    </form>
 
   </article>
 
