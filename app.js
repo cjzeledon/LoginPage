@@ -33,8 +33,13 @@ app.get('/', function (request, respond){
 
 //This works fantastic with redirecting you to the login page. However, when you hit the log out button, it does not erase your session. If you type in /welcome on the URL box, you can easily go back to the welcome page and still with your user identification.
 app.post('/', function (request, respond){
+  // this is where you need to end or destroy the current session
+  // Remember to add the request.session.destroy BEFORE respond.render because JS reads from top to bottom
+  request.session.destroy(function(err) {
+    // cannot access session here
+  });
   respond.render('login');
-  // respond.end('You have logged out');
+
 });
 
 // Below refers to Sign Up pages
@@ -44,9 +49,7 @@ app.get('/create_account', function(request, respond){
 
 app.post('/create_account', function (request, respond){
   respond.render('create_account');
-  // respond.end('You have logged out');
 });
-
 
 //This section creates a request.session that only applies to this. The code request.session is essentially an object where information can be stored in.
 app.post('/login', function (request, respond){
