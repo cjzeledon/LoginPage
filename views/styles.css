@@ -22,6 +22,11 @@ strong{
   text-align: center;
 }
 
+.kidding_again{
+  font-size: .4em;
+  font-family: Bookman, Garamond, Palatino, Georgia;
+}
+
 .signin{
   border: 10px dotted lightgray;
   border-radius: 15px;
